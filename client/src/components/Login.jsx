@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:4000/api/v1/login", {
+      const response = await axios.post("https://signup-login-authentication-rust.vercel.app/api/v1/login", {
         email,
         password,
       });

@@ -15,7 +15,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/register",
+        "https://signup-login-authentication-rust.vercel.app/api/v1/register",
         {
           firstname,
           lastname,
