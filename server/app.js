@@ -12,14 +12,6 @@ config({
 
 const app = express();
 
-// Logging middleware for debugging
-app.use((req, res, next) => {
-  console.log('Request Headers:', req.headers);
-  res.on('finish', () => {
-    console.log('Response Headers:', res.getHeaders());
-  });
-  next();
-});
 
 // Middleware to parse JSON and URL-encoded data
 app.use(express.json());
@@ -33,7 +25,7 @@ app.use(cookieParser());
 // CORS configuration
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL.replace(/\/$/, ""), // Remove trailing slash if any
+    origin: process.env.FRONTEND_URL,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"],
